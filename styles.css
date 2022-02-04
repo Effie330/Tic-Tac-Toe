@@ -1,0 +1,22 @@
+body{
+  background-color: aqua;
+
+  margin: 0px;
+}
+
+.grid-container { 
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 50vw 50vw;
+  font-size: xx-large;
+}
+
+.grid-item {
+  background-color: azure;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 20px 20px;
+  margin: 5px;
+  text-align: center;
+}

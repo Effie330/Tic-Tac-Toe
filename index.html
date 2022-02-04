@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tic Tac Toe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<header id="displayWinner"></header>
+<body>
+  <div class="grid-container">
+    <div class="grid-item" id="TL" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="TM" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="TR" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="ML" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="MM" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="MR" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="BL" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="BM" onClick="displayMove(id)"> </div>
+    <div class="grid-item" id="BR" onClick="displayMove(id)"> </div>
+  </div>
+  <script>
+    let currentMove = "X";
+    let moveCount = 0;
+    let topRow = ["N", "N", "N"];
+    let middleRow = ["N", "N", "N"];
+    let bottomRow = ["N", "N", "N"];
+    let winnerPlayerIs;
+    let gameWon = false;
+    function displayMove(moveLocation) {
+      if(gameWon == false){
+        moveCount += 1;
+
+        //Writing the X or O into the square
+        document.getElementById(moveLocation).innerHTML = currentMove;
+
+        let row = moveLocation.slice(0,1);
+        let column = moveLocation.slice(1,2);
+        let columnInt = -1;
+
+        
+        //Changing the Column to the array position number
+        switch(column){
+          case("L"): columnInt = 0; break;
+          case("M"): columnInt = 1; break;
+          case("R"): columnInt = 2; break;
+        }
+        //Placing the move in the proper row array
+        switch(row) {
+          case("T"): topRow[columnInt]=currentMove; break;
+          case("M"): middleRow[columnInt]=currentMove; break;
+          case("B"): bottomRow[columnInt]=currentMove; break;
+        }
+
+        //CHECKING THE 8 DIFFERENT WIN STATES AFTER 5 TOTAL MOVES HAVE BEEN PLAYED
+        if(moveCount >= 5) {
+
+          //Checking the Vertical win states
+          if((topRow[0] != "N")&&(topRow[0] == middleRow[0])&&(middleRow[0] == bottomRow[0])) {
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }else if((topRow[1] != "N")&&(topRow[1] == middleRow[1])&&(middleRow[1] == bottomRow[1])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }else if((topRow[2] != "N")&&(topRow[2] == middleRow[2])&&(middleRow[2] == bottomRow[2])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }
+
+          //Checking the horizontal win states
+          else if((topRow[0] != "N")&&(topRow[0] == topRow[1])&&(topRow[1] == topRow[2])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }else if((middleRow[0] != "N")&&(middleRow[0] == middleRow[1])&&(middleRow[1] == middleRow[2])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }else if((bottomRow[0] != "N")&&(bottomRow[0] == bottomRow[1])&&(bottomRow[1] == bottomRow[2])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }
+
+          //Checking diagonal win states
+          else if((topRow[0] != "N")&&(topRow[0] == middleRow[1])&&(middleRow[1] == bottomRow[2])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }else if((topRow[2] != "N")&&(topRow[2] == middleRow[1])&&(middleRow[1] == bottomRow[0])){
+            gameWon = true;
+            winnerPlayerIs = currentMove;
+          }
+        }
+
+        //If someone won the game, displaying the message at the top
+        if(gameWon == true){
+          if(winnerPlayerIs == "X") document.getElementById("displayWinner").innerHTML = "Player X has won!";
+          else document.getElementById("displayWinner").innerHTML = "Player O has won!";
+        };
+        console.log(topRow);
+        console.log(middleRow);
+        console.log(bottomRow);
+        //Switching the current player for next turn
+        if(currentMove == "X") currentMove = "O";
+        else currentMove = "X";
+      }; 
+    }
+  </script>
+</body>
+</html>
