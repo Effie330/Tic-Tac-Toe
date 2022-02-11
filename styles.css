@@ -1,10 +1,14 @@
 *{
-  --offwhite: #F0FFFF;
+  --white: #ffffff;
+  --off-white: #ffefdc;
+  --off-white2: #E2CDB4;
   --blue1: #3CF7F7;
-  --blue2: #02CACA;
+  --blue2: #02caca;
+  --blue3: #03afaf;
+  --blue4: #058f8f;
 }
 body{
-  background-color: aqua;
+  background-color: var(--blue1);
   margin: 0px;
   width: 100%;
   height: 100%;
@@ -15,6 +19,7 @@ body{
   text-align: center;
   font-size: 35px;
   height: 50px;
+  background-color: var(--blue2);
 }
 div{
   justify-content: center;
@@ -32,16 +37,16 @@ div{
   width: 10%;
   height:10%;
   */
-  /*
-  background-image: linear-gradient(var(--offwhite),var(--blue1));
-  */
+  
+  background-image: linear-gradient( var(--blue2),var(--blue1));
+  
 }
 
 .grid-item {
-  background-color: var(--offwhite);
-  box-shadow: 8px 8px 5px var(--blue1);
+  background-color: var(--off-white);
+  box-shadow: inset 8px 8px 5px var(--white),inset -8px -8px 5px var(--off-white2),8px 8px 5px var(--blue3);
   /*box-shadow: inset 8px 8px 5px var(--blue2);*/
-  /*background-image: linear-gradient(var(--offwhite),var(--blue1));*/
+  /*background-image: linear-gradient(var(--white),var(--blue1));*/
   width: 75px;
   height: 75px;
   border-radius: 10px;
@@ -51,5 +56,5 @@ div{
 }
 
 .grid-item:active{
-  box-shadow: inset 8px 8px 5px var(--blue2);
+  box-shadow: inset 8px 8px 5px var(--white),inset -8px -8px 5px var(--off-white2), 5px 5px 5px var(--blue4),0px 0px 5px 3px var(--blue4);
 }

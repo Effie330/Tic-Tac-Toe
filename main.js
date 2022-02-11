@@ -7,7 +7,6 @@ let winnerPlayerIs;
 let gameWon = false;
 function displayMove(moveLocation) {
   if(!gameWon){
-    moveCount += 1;
     let validMove = false
     let row = moveLocation.slice(0,1);
     let column = moveLocation.slice(1,2);
@@ -41,6 +40,9 @@ function displayMove(moveLocation) {
       break;
     }
 
+    //incrementing move count only if the move is valid
+    if(validMove) moveCount += 1;
+
     //CHECKING THE 8 DIFFERENT WIN STATES AFTER 5 TOTAL MOVES HAVE BEEN PLAYED
     function checkWinStates(){
       if(
@@ -62,9 +64,15 @@ function displayMove(moveLocation) {
         winnerPlayerIs = currentMove;
       }
     }
-    
+
     //Only checking win states after minimum number of moves is played
     if(moveCount >= 5){checkWinStates();}
+
+    //Checking if Tie
+    if((moveCount == 9) && !gameWon) {
+      console.log(moveCount);
+      document.getElementById("displayWinner").innerHTML = "The game has tied!";
+    }
 
     //If someone won the game, displaying the message at the top
     if(gameWon){

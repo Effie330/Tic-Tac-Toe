@@ -1,1 +1,3 @@
--block overwriting past moves
+show how many times x and o have won
+show which starting move is best
+most common win state
