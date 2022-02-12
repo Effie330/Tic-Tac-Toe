@@ -7,6 +7,14 @@
   --blue3: #03afaf;
   --blue4: #058f8f;
 }
+.noSelect{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version*/
+}
 body{
   background-color: var(--blue1);
   margin: 0px;
@@ -24,22 +32,12 @@ body{
 div{
   justify-content: center;
 }
-.shit{
-  align-content: center;
-}
 .grid-container { 
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto;
-  
-  font-size: 75px;
-  /*
-  width: 10%;
-  height:10%;
-  */
-  
-  background-image: linear-gradient( var(--blue2),var(--blue1));
-  
+  font-size: 75px; 
+  background-image: linear-gradient(var(--blue2),var(--blue1));
 }
 
 .grid-item {
