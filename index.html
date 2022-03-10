@@ -9,16 +9,21 @@
 </head>
 <body>
   <div class="winnerText" id="displayWinner"> </div>
+  
   <div class="grid-container">
-    <div class="grid-item noSelect" id="TL" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="TM" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="TR" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="ML" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="MM" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="MR" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="BL" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="BM" onClick="displayMove(id)"> </div>
-    <div class="grid-item noSelect" id="BR" onClick="displayMove(id)"> </div>
+    <div class="winningLine" id="none"></div>
+    <div class="grid-item noSelect" id="TL" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="TM" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="TR" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="ML" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="MM" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="MR" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="BL" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="BM" onClick="calcMove(id)"> </div>
+    <div class="grid-item noSelect" id="BR" onClick="calcMove(id)"> </div>
+  </div>
+  <div>
+    <button onClick="">Show Best Moves</button>
   </div>
   <script src="main.js"></script>
 </body>

@@ -17,10 +17,67 @@
 }
 body{
   background-color: var(--blue1);
+  align-items: center;
   margin: 0px;
   width: 100%;
   height: 100%;
 }
+.winningLine {
+  background-color: #2aff3c;
+  font-size: 0px;
+  border-radius: 5px;
+  width: 300px;
+  height: 5px;
+  position: absolute;
+  padding: 5px 5px 5px 5px;
+}
+/*
+  Changing position depending on where the winning line is
+*/
+
+#none{
+  opacity: 0;
+}
+#horizontal_1{
+  top: 16%;
+  left: 32%;
+}
+#horizontal_2{
+  top: 48.5%;
+  left: 32%;
+}
+#horizontal_3{
+  top: 82%;
+  left: 32%;
+}
+#vertical_1{
+  top: 48%;
+  left: 17%;
+  transform: rotate(90deg);
+}
+#vertical_2{
+  top: 48%;
+  left: 31.5%;
+  transform: rotate(90deg);
+}
+#vertical_3{
+  top: 48%;
+  left: 46.5%;
+  transform: rotate(90deg);
+}
+#diagonal_1{
+  top: 48%;
+  left: 28%;
+  width: 360px;
+  transform: rotate(45deg);
+}
+#diagonal_2{
+  top: 48%;
+  left: 28%;
+  width: 360px;
+  transform: rotate(-45deg);
+}
+
 
 .winnerText {
   padding: 5px;
@@ -33,6 +90,7 @@ div{
   justify-content: center;
 }
 .grid-container { 
+  position: relative;
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto;
