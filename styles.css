@@ -26,70 +26,142 @@ body{
   background-color: #2aff3c;
   font-size: 0px;
   border-radius: 5px;
-  width: 305px;
+  width: 0px;
   height: 5px;
   position: absolute;
   z-index: 9;
   padding: 5px 5px 5px 5px;
+  
 }
 /*
   Changing position depending on where the winning line is
 */
+@keyframes horizontal-Win{
+  100% {
+    width: 305px;
+  }
+  0% {
+    width: 0%;
+  }
+}
 
+@keyframes diagonal-Win{
+  100% {
+    width: 360px;
+  }
+  0% {
+    width: 0%;
+  
+  }
+}
+
+@keyframes diagonal-rotate1{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes diagonal-rotate2{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes vertical-Win{
+  0%{
+    height: 10px;
+  }
+  100%{
+    height: 280px;
+  }
+}
 #none{
   opacity: 0;
   transition: ease-in;
 }
 #horizontal_1{
+  width: 305px;
   top: 16%;
-  grid-column: 1/3;
   left: 29px;
+  grid-column: 1/3;
+  opacity: 100%;
+
+  animation: horizontal-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #horizontal_2{
+  width: 305px;
   top: 48.5%;
-  grid-column: 1/3;
   left: 29px;
+  grid-column: 1/3;
+  opacity: 100%;
+
+  animation: horizontal-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #horizontal_3{
+  width: 305px;
   top: 82%;
-  grid-column: 1/3;
   left: 29px;
+  grid-column: 1/3;
+  opacity: 100%;
+
+  animation: horizontal-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #vertical_1{
   top: 19%;
   left: 56px;
+  width: 5px;
+  height: 280px;
   grid-column: 1;
   grid-row: 1/3;
-  width: 5px;
-  height: 270px;
+  opacity: 100%;
+
+  animation: vertical-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #vertical_2{
-  top: 19%;
+   top: 19%;
   left: 56px;
+  width: 5px;
+  height: 280px;
   grid-column: 2;
   grid-row: 1/3;
-  width: 5px;
-  height: 270px;
+  opacity: 100%;
+  
+  animation: vertical-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #vertical_3{
   top: 19%;
   left: 56px;
+  width: 5px;
+  height: 280px;
   grid-column: 3;
   grid-row: 1/3;
-  width: 5px;
-  height: 270px;
+  opacity: 100%;
+  
+  animation: vertical-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03);
 }
 #diagonal_1{
   top: 48%;
   grid-column: 1/3;
   width: 360px;
-  transform: rotate(45deg);
+  
+  opacity: 100%;
+  animation: diagonal-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03),
+   2s diagonal-rotate1 1s cubic-bezier(0.65, 0, 0.31, 1.03) forwards;
 }
 #diagonal_2{
   top: 48%;
   grid-column: 1/3;
   width: 360px;
-  transform: rotate(-45deg);
+  
+  opacity: 100%;
+  animation: diagonal-Win 2s cubic-bezier(0.65, 0, 0.31, 1.03),
+   2s diagonal-rotate2 1s cubic-bezier(0.65, 0, 0.31, 1.03) forwards;
 }
 
 
